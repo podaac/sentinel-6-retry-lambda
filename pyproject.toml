@@ -1,0 +1,22 @@
+[project]
+name = "sentinel-6-retry-lambda"
+version = "0.1.0-alpha.1"
+description = "Filters granules for Sentinel-6 retry logic"
+authors = [
+    {name = "Hong-Kit Randy Yeung", email = "hong-kit.r.yeung@jpl.nasa.gov"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    
+]
+
+[tool.poetry]
+packages = [{include = "sentinel_6_retry_lambda", from = "src"}]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
