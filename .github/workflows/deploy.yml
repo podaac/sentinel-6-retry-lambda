@@ -29,21 +29,22 @@ jobs:
 
       - name: Build Deployment Zip
         run: |
-          # 1. Create a clean bundle directory
+          # 1. Install the export plugin required for Poetry 2.0+
+          poetry self add poetry-plugin-export
+          
+          # 2. Create a clean bundle directory
           mkdir dist_bundle
           
-          # 2. Export dependencies (standard PEP 621 requirements)
-          # Note: Poetry 2.0 uses 'export' plugin if installed, otherwise use:
+          # 3. Export dependencies to requirements.txt
           poetry export --without-hashes --format=requirements.txt > requirements.txt
           
-          # 3. Install dependencies into the bundle
+          # 4. Install dependencies into the bundle folder
           pip install -r requirements.txt -t dist_bundle
           
-          # 4. Copy your specific package code (the logic inside src/sentinel_6_retry_lambda)
-          # Using . ensures the files like lambda_function.py are at the root of the zip
+          # 5. Copy your package code
           cp -r src/sentinel_6_retry_lambda/. dist_bundle/
           
-          # 5. Zip it up
+          # 6. Zip everything up
           cd dist_bundle && zip -r ../lambda_package.zip .
 
       - name: Upload Artifact
