@@ -1,6 +1,6 @@
 [project]
 name = "sentinel-6-retry-lambda"
-version = "0.1.0-alpha.1"
+version = "0.1.0-alpha.2"
 description = "Filters granules for Sentinel-6 retry logic"
 authors = [
     {name = "Hong-Kit Randy Yeung", email = "hong-kit.r.yeung@jpl.nasa.gov"}
